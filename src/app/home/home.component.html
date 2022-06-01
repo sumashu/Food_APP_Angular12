@@ -1,0 +1,29 @@
+<ul>
+    <li *ngFor="let fod of foods">
+        <a><img src="{{fod.imageUrl}}" alt="">
+            <div class="content">
+                <div class="name">{{fod.name}}
+                    <i class="bi bi-heart-fill {{fod.favorite?'red':'black'}}"></i>
+                    <star-rating [value]="fod.star" [totalstars]="5" checkedcolor="red" uncheckedcolor="black"
+                        size="24px" [readonly]="true">
+                    </star-rating>
+                    <div class="product-item-footer">
+                        <div class="origin">
+                            <span *ngFor="let orgn of fod.origins">
+                                {{orgn}}
+                            </span>
+                        </div>
+                        <div class="cook-Time">
+                            <i class="bi bi-clock"></i> {{fod.cookTime}} Min
+                        </div>
+
+
+                    </div>
+                    <div class="price">
+                        {{fod.price | currency : 'INR'}}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
